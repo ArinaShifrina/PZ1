@@ -22,15 +22,16 @@ if os.path.exists(filename)==False:
 filename = os.path.join(filename, 'results.json')
 
 with open(filename,'w') as f:
-        f.write('{\n\t')
+        f.write('{\n\t"x": [')
         for i in range(len(X)):
-            Temp = str(X[i]) + ', '
+                Temp = str(X[i]) + ', '
+                f.write(Temp)
         Temp = Temp[:-2]
-        f.write('"x": [' + Temp + '],\n')
+        f.write(Temp + '],\n\t"y": [')
         for i in range(len(Y)):
-            Temp = str(Y[i]) + ', '
+                Temp = str(Y[i]) + ', '
+                f.write(Temp)
         Temp = Temp[:-2]
-        f.write('\t"y": [' + Temp + ']\n}')
-
+        f.write( Temp + ']\n}')
 plt.plot(X,Y)
 plt.show()
